@@ -1,19 +1,24 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native'
-import MinMax from './Components/MinMax'
-import RNG from './Components/Aleatorio'
-import Title from './Components/Titulo'
+import Counter from './Components/Contador'
+//import MinMax from './Components/MinMax'
+//import RNG from './Components/Aleatorio'
+//import Title from './Components/Titulo'
+//import Botao from './Components/Botao'
 //import Pri from './Components/Primeiro'
 //import Test, { Component1, Component2 } from './Components/Multi'
 
 function App() {
     return ( 
         <View style={styles.App}>
+            <Counter start={100}/>
+            {/*
             <Title 
                 main="Cadastro Produto" 
                 alt="Tela de Cadastro"
             />
-            {/*
+            <Botao/>
+            
             <MinMax min="3" max="20"/>
             <MinMax min="1" max="94"/>
             <RNG min='1' max='10'/>
