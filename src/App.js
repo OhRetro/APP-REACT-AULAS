@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native'
-import Counter from './Components/Contador'
+import PaiI from './Components/Indireta/Pai'
+//import Counter from './Components/Contador'
 //import MinMax from './Components/MinMax'
 //import RNG from './Components/Aleatorio'
 //import Title from './Components/Titulo'
@@ -11,8 +12,10 @@ import Counter from './Components/Contador'
 function App() {
     return ( 
         <View style={styles.App}>
-            <Counter start={100}/>
+            <PaiI/>
             {/*
+            <Counter start={100}/>
+            
             <Title 
                 main="Cadastro Produto" 
                 alt="Tela de Cadastro"

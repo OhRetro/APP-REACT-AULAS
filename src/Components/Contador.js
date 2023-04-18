@@ -10,7 +10,7 @@ export default props => {
 
     return (
         <>
-            <Text>{numero}</Text>
+            <Text style={Estilo.txtG}>{numero}</Text>
             <Button title="+" onPress={inc}/>
             <Button title="-" onPress={dec}/>
         </>
