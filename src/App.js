@@ -1,6 +1,9 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native'
-import PaiI from './Components/Indireta/Pai'
+//import FamiliaR from './Components/Relacao/Familia'
+//import MembroR from './Components/Relacao/Membro';
+//import ParImpar from './Components/ParImpar'
+//import PaiI from './Components/Indireta/Pai'
 //import Counter from './Components/Contador'
 //import MinMax from './Components/MinMax'
 //import RNG from './Components/Aleatorio'
@@ -12,8 +15,21 @@ import PaiI from './Components/Indireta/Pai'
 function App() {
     return ( 
         <View style={styles.App}>
-            <PaiI/>
             {/*
+            <FamiliaR>
+                <MembroR nome="Naka" sobrenome="Zone"/>
+                <MembroR nome="Zone" sobrenome="Naka"/>
+            </FamiliaR>
+
+            <FamiliaR>
+                <MembroR nome="Naca" sobrenome="Zone"/>
+                <MembroR nome="Zone" sobrenome="Naca"/>
+            </FamiliaR>
+           
+            <ParImpar num={2}/>
+            
+            <PaiI/>
+            
             <Counter start={100}/>
             
             <Title 
