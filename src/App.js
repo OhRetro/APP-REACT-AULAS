@@ -15,6 +15,7 @@ import { Text, View, StyleSheet } from 'react-native'
 function App() {
     return ( 
         <View style={styles.App}>
+            <Text>A</Text>
             {/*
             <FamiliaR>
                 <MembroR nome="Naka" sobrenome="Zone"/>
