@@ -1,5 +1,9 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native'
+import ListaProdutosV2 from './Components/Produtos/ListaProdutosV2';
+import ListaProdutos from './Components/Produtos/ListaProdutos';
+
+//import Quadrado from './Components/Layout/Quadrado'
 //import FamiliaR from './Components/Relacao/Familia'
 //import MembroR from './Components/Relacao/Membro';
 //import ParImpar from './Components/ParImpar'
@@ -15,8 +19,14 @@ import { Text, View, StyleSheet } from 'react-native'
 function App() {
     return ( 
         <View style={styles.App}>
-            <Text>A</Text>
+            <ListaProdutosV2/>
             {/*
+            <ListaProdutos/>
+            
+            <Quadrado cor="blue"/>
+            <Quadrado cor="red"/>
+            <Quadrado cor="green"/>
+
             <FamiliaR>
                 <MembroR nome="Naka" sobrenome="Zone"/>
                 <MembroR nome="Zone" sobrenome="Naka"/>
