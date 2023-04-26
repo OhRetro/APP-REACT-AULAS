@@ -5,7 +5,7 @@ import produtos from "./Produtos";
 
 export default props => {
     const produtoRender = ({item: p}) => {
-        return <Text> {p.id} {p.nome} - R$ {p.preco}</Text>
+        return <Text> {p.id} {p.nome} - R$ {p.valor}</Text>
     }
     return (
         <>

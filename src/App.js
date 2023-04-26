@@ -1,26 +1,38 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native'
+import Mega from './Components/Mega/Mega';
+/* 
+import FlexboxV4 from './Components/Layout/FlexboxV4';
+import FlexboxV3 from './Components/Layout/FlexboxV3';
+import FlexboxV2 from './Components/Layout/FlexboxV2';
+import FlexboxV1 from './Components/Layout/FlexboxV1';
 import ListaProdutosV2 from './Components/Produtos/ListaProdutosV2';
 import ListaProdutos from './Components/Produtos/ListaProdutos';
-
-//import Quadrado from './Components/Layout/Quadrado'
-//import FamiliaR from './Components/Relacao/Familia'
-//import MembroR from './Components/Relacao/Membro';
-//import ParImpar from './Components/ParImpar'
-//import PaiI from './Components/Indireta/Pai'
-//import Counter from './Components/Contador'
-//import MinMax from './Components/MinMax'
-//import RNG from './Components/Aleatorio'
-//import Title from './Components/Titulo'
-//import Botao from './Components/Botao'
-//import Pri from './Components/Primeiro'
-//import Test, { Component1, Component2 } from './Components/Multi'
+import Quadrado from './Components/Layout/Quadrado'
+import FamiliaR from './Components/Relacao/Familia'
+import MembroR from './Components/Relacao/Membro';
+import ParImpar from './Components/ParImpar'
+import PaiI from './Components/Indireta/Pai'
+import Counter from './Components/Contador'
+import MinMax from './Components/MinMax'
+import RNG from './Components/Aleatorio'
+import Title from './Components/Titulo'
+import Botao from './Components/Botao'
+import Pri from './Components/Primeiro'
+import Test, { Component1, Component2 } from './Components/Multi'
+*/
 
 function App() {
     return ( 
         <View style={styles.App}>
-            <ListaProdutosV2/>
+            <Mega/>
             {/*
+            <FlexboxV4/>
+            <FlexboxV3/>
+            <FlexboxV2/>
+            <FlexboxV1/>
+            
+            <ListaProdutosV2/>
             <ListaProdutos/>
             
             <Quadrado cor="blue"/>
@@ -46,7 +58,7 @@ function App() {
             <Title 
                 main="Cadastro Produto" 
                 alt="Tela de Cadastro"
-            />
+                />
             <Botao/>
             
             <MinMax min="3" max="20"/>
