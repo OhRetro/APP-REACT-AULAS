@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Button } from 'react-native';
 
 export default function HomeScreen({navigation}) {
     function createButton(name, display) {
@@ -13,6 +13,7 @@ export default function HomeScreen({navigation}) {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        {createButton("Operations", "Operações")}
         {createButton("Sum", "Somar")}
         {createButton("Multiply", "Multiplicar")}
         {createButton("Divide", "Dividir")}
