@@ -3,15 +3,16 @@ import { View, Text, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-
-export default function HomeScreen({navigation}) {
+export default function DetailsScreen({ navigation }) {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
+        <Text>Details Screen</Text>
         <Button
-            title='Details'
-            onPress={() => navigation.push('Details')}
+          title="Go to Details... again"
+          onPress={() => navigation.push('Details')}
         />
+        <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+        <Button title="Go back" onPress={() => navigation.goBack()} />
       </View>
     );
-  }
+  } 
