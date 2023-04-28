@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, Button, TextInput, Alert } from "react-native";
-import AppStyle from "../AppStyle";
+import AppStyle from "../../AppStyle";
 
 export default function SumScreen({ navigation }) {
     const [num1, setNum1] = useState("")
@@ -13,31 +13,30 @@ export default function SumScreen({ navigation }) {
           return;
         }
     
-        const sum = parseInt(num1) * parseInt(num2);
+        const sum = parseInt(num1) - parseInt(num2);
         setResult(sum)
       };
 
 
     return (
-        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-
+        <View style={[{flex: 1, alignItems: "center", justifyContent: "center"}, AppStyle.autoTheme]}>
             <TextInput
-                style={[AppStyle.txtG, AppStyle.border1, AppStyle.size1]}
+                style={[AppStyle.textBig, AppStyle.textCentered, AppStyle.border1, AppStyle.size1]}
                 placeholder="Número"
                 keyboardType="numeric"
                 onChangeText={setNum1}
                 value={num1}
             />
-            <Text style={AppStyle.txtG}>*</Text>
+            <Text style={[AppStyle.textBig, AppStyle.textCentered]}>-</Text>
             <TextInput
-                style={[AppStyle.txtG, AppStyle.border1, AppStyle.size1]}
+                style={[AppStyle.textBig, AppStyle.textCentered, AppStyle.border1, AppStyle.size1]}
                 placeholder="Número"
                 keyboardType="numeric"
                 onChangeText={setNum2}
                 value={num2}
             />
-            <Button style={[AppStyle.txtG, AppStyle.border1, AppStyle.size1]} title="      =      " onPress={calculate} />
-            <Text style={[AppStyle.txtG, AppStyle.border1, AppStyle.size1]}>{result}</Text>
+            <Button style={[AppStyle.textBig, AppStyle.textCentered, AppStyle.border1, AppStyle.size1]} title="      =      " onPress={calculate} />
+            <Text style={[AppStyle.textBig, AppStyle.textCentered, AppStyle.border1, AppStyle.size1]}>{result}</Text>
         </View>
     );
 }
