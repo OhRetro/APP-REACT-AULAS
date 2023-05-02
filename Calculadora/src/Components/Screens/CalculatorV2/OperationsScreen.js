@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Alert } from "react-native";
 import { Picker } from "@react-native-picker/picker";
+import { createPicker } from "../../PickerCreator";
 import CustomButton from "../../CustomButton";
 import Calculator from "../../MathOperations"
 import AppStyle from "../../AppStyle";
@@ -24,15 +25,15 @@ export default function OperationsScreen({ navigation }) {
     return (
         <View
             style={[
-                {flex: 1, alignItems: "center", justifyContent: "center"}, 
+                { flex: 1, alignItems: "center", justifyContent: "center" },
                 AppStyle.autoTheme
             ]}
         >
             <TextInput
                 style={[
                     AppStyle.autoTheme,
-                    AppStyle.border, 
-                    AppStyle.size1, 
+                    AppStyle.border,
+                    AppStyle.size1,
                     AppStyle.textBig,
                     AppStyle.textCentered,
                     AppStyle.bgColor1
@@ -42,21 +43,23 @@ export default function OperationsScreen({ navigation }) {
                 onChangeText={setNum1}
                 value={num1}
             />
-            <Picker
-                selectedValue={operation}
-                onValueChange={setOperation}
-                style={[AppStyle.size1, AppStyle.bgColor1]}
-            >
-                <Picker.Item label="+ (Somar)" value="+" />
-                <Picker.Item label="* (Multiplicar)" value="*" />
-                <Picker.Item label="/ (Dividir)" value="/" />
-                <Picker.Item label="- (Subtrair)" value="-" />
-            </Picker>
+            {createPicker(
+                { operation },
+                { setOperation },
+                [AppStyle.size1, AppStyle.bgColor1],
+                [
+                    ["+ (Somar)", "+"],
+                    ["* (Multiplicar)", "*"],
+                    ["/ (Dividir)", "/"],
+                    ["- (Subtrair)", "-"]
+                ]
+
+            )}
             <TextInput
                 style={[
                     AppStyle.autoTheme,
-                    AppStyle.border, 
-                    AppStyle.size1, 
+                    AppStyle.border,
+                    AppStyle.size1,
                     AppStyle.textBig,
                     AppStyle.textCentered,
                     AppStyle.bgColor1
@@ -66,13 +69,13 @@ export default function OperationsScreen({ navigation }) {
                 onChangeText={setNum2}
                 value={num2}
             />
-            <CustomButton 
+            <CustomButton
                 buttonStyle={[AppStyle.size1, AppStyle.button1]}
                 textStyle={[AppStyle.textCentered, AppStyle.textBig]}
-                title="Calcular" 
-                onPress={calculate} 
+                title="Calcular"
+                onPress={calculate}
             />
-            <Text 
+            <Text
                 style={[
                     AppStyle.border,
                     AppStyle.size1,

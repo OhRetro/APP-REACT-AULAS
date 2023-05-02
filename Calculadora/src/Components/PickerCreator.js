@@ -2,9 +2,13 @@ import React from "react";
 import { Picker } from "@react-native-picker/picker";
 
 function createPickerItem(label, value) {
-    return (
-        <Picker.Item label={label} value={value}/>
-    )
+    return <Picker.Item label={label} value={value}/>
+}
+
+function createPickersItems(pickersItems) {
+    return pickersItems.map((pickerItem) =>
+        createPickerItem(pickerItem[0], pickerItem[1])
+    );
 }
 
 function createPicker(selectedValue, onValueChange, style, items) {
@@ -14,9 +18,7 @@ function createPicker(selectedValue, onValueChange, style, items) {
             onValueChange={onValueChange}
             style={style}
         >
-            {items.map(item => {
-                createPickerItem(item[0], item[1]);
-            })}
+            {createPickersItems(items)}
         </Picker>
     )
 }
