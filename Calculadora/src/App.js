@@ -1,12 +1,11 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native'
-import CalculatorV1 from "./Components/Screens/CalculatorV1/CalculatorV1"
-import CalculatorV2 from "./Components/Screens/CalculatorV2/CalculatorV2"
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native"
+import Calculator from "./Components/Calculator"
 
 function App() {
     return ( 
         <NavigationContainer>
-            <CalculatorV2/>
+            <Calculator/>
         </NavigationContainer>
     )
 }
