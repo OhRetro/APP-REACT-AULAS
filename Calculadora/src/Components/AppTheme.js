@@ -14,6 +14,7 @@ export default function AppTheme() {
             autoStyle(colors.black26, colors.gray143),
             autoStyle(colors.black19, colors.gray104),
             autoStyle(colors.black27, colors.white235),
+            autoStyle(colors.gray58, colors.white246)
         ],
         "borderColor": [
             colors.gray80,
@@ -35,7 +36,7 @@ export default function AppTheme() {
     
             button1: {
                 borderColor: presetStyle.borderColor[2],
-                backgroundColor: isDarkModeOn ? colors.gray58 : colors.white246,
+                backgroundColor: presetStyle.bgColor[4],
                 borderRadius: 5,
                 borderWidth: 4,
             },

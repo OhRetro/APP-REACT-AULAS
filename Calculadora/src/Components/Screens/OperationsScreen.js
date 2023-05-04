@@ -5,7 +5,6 @@ import { createPicker } from "../PickerCreator";
 import CustomButton from "../CustomButton";
 import Calculator from "../MathOperations"
 import AppTheme from "../AppTheme";
-import colors from "../Colors";
 
 export default function OperationsScreen({ navigation }) {
     const [num1, setNum1] = useState("")
@@ -41,9 +40,9 @@ export default function OperationsScreen({ navigation }) {
             <TextInput
                 style={[
                     style.autoTheme,
-                    {backgroundColor: presetStyle.bgColor[0]},
+                    {backgroundColor: presetStyle.bgColor[4]},
                     style.border,
-                    {borderColor: presetStyle.borderColor[1]},
+                    {borderColor: presetStyle.borderColor[2]},
                     style.size1,
                     style.textBig,
                     style.textCentered,
@@ -70,9 +69,9 @@ export default function OperationsScreen({ navigation }) {
             <TextInput
                 style={[
                     style.autoTheme,
-                    {backgroundColor: presetStyle.bgColor[0]},
+                    {backgroundColor: presetStyle.bgColor[4]},
                     style.border,
-                    {borderColor: presetStyle.borderColor[1]},
+                    {borderColor: presetStyle.borderColor[2]},
                     style.size1,
                     style.textBig,
                     style.textCentered,
@@ -84,7 +83,7 @@ export default function OperationsScreen({ navigation }) {
                 placeholderTextColor={autoStyle()}
             />
             <CustomButton
-                buttonStyle={[style.size1, style.button1]}
+                buttonStyle={[style.size1, style.button1, {backgroundColor: presetStyle.borderColor[1]}]}
                 textStyle={[style.textCentered, style.textBig, {color: autoStyle()}]}
                 title="Calcular"
                 onPress={calculate}
