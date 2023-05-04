@@ -1,19 +1,18 @@
 import React from 'react';
-
 import { Stack, createStackScreen } from "./ScreenStacker"
-import AppTheme, {autoMainColor} from './AppTheme';
+import AppTheme from './AppTheme';
 import OperationsScreen from './Screens/OperationsScreen';
 
 export default () => {
     const theme = AppTheme()
-    const style = theme.Style
-    const isDarkModeOn = theme.isDarkModeOn
+    const autoStyle = theme.autoStyleFunction
+    const presetStyle = theme.presetStyle
 
     return (
         <Stack.Navigator
             screenOptions={{
-                headerStyle: [style.autoTheme, style.bgColor1],
-                headerTintColor: autoMainColor(isDarkModeOn)
+                headerStyle: {backgroundColor: presetStyle.bgColor[0]},
+                headerTintColor: autoStyle()
             }}
         >
             {createStackScreen(OperationsScreen, "Operations", "V2")}

@@ -1,57 +1,41 @@
 import { StyleSheet, useColorScheme } from "react-native"
+import colors from "./Colors";
 
-const colorScheme = {
-    "dark": [
-        "rgb(10, 10, 10)",
-        "rgb(39, 39, 39)",
-        "rgb(26, 26, 26)",
-        "rgb(19, 19, 19)",
-        "rgb(80, 80, 80)",
-        "rgb(58, 58, 58)",
-        "rgb(27, 27, 27)"
-    ],
-    "light": [
-        "rgb(235, 235, 235)",
-        "rgb(214, 214, 214)",
-        "rgb(143, 143, 143)",
-        "rgb(104, 104, 104)",
-        "rgb(216, 216, 216)",
-        "rgb(246, 246, 246)"
-    ]
-}
-
-function autoMainColor(isDarkModeOn) {
-    return isDarkModeOn ? "white": "black"
-}
-
-export { autoMainColor }
 export default function AppTheme() {
     const isDarkModeOn = useColorScheme() === "dark"
 
+    function autoStyle(styleOnDarkMode, styleOnLightMode) {
+        return isDarkModeOn ? (styleOnDarkMode || colors.white246) : (styleOnLightMode || colors.black39)
+    }
+
+    const presetStyle = {
+        "bgColor": [
+            autoStyle(colors.black39, colors.white214),
+            autoStyle(colors.black26, colors.gray143),
+            autoStyle(colors.black19, colors.gray104),
+            autoStyle(colors.black27, colors.white235),
+        ],
+        "borderColor": [
+            colors.gray80,
+            colors.gray143,
+            autoStyle(colors.gray80, colors.white216)
+        ],
+    }
+
     return {
         "isDarkModeOn": isDarkModeOn,
-        "Style": StyleSheet.create({
+        "autoStyleFunction": autoStyle,
+        "presetStyle": presetStyle,
+        "style": StyleSheet.create({
             autoTheme: {
-                color: autoMainColor(isDarkModeOn),
-                backgroundColor: isDarkModeOn ? colorScheme.dark[6] : colorScheme.light[0],
-                borderColor: autoMainColor(isDarkModeOn)
-            },
-    
-            bgColor1: {
-                backgroundColor: isDarkModeOn ? colorScheme.dark[1] : colorScheme.light[1],
-            },
-    
-            bgColor2: {
-                backgroundColor: isDarkModeOn ? colorScheme.dark[2] : colorScheme.light[2],
-            },
-    
-            bgColor3: {
-                backgroundColor: isDarkModeOn ? colorScheme.dark[3] : colorScheme.light[3],
+                color: autoStyle(),
+                backgroundColor: presetStyle.bgColor[3],
+                borderColor: autoStyle()
             },
     
             button1: {
-                borderColor: isDarkModeOn ? colorScheme.dark[4] : colorScheme.light[4],
-                backgroundColor: isDarkModeOn ? colorScheme.dark[5] : colorScheme.light[5],
+                borderColor: presetStyle.borderColor[2],
+                backgroundColor: isDarkModeOn ? colors.gray58 : colors.white246,
                 borderRadius: 5,
                 borderWidth: 4,
             },
@@ -75,15 +59,6 @@ export default function AppTheme() {
                 borderRadius: 7,
                 padding: 10,
             },
-    
-            borderColor1: {
-                borderColor: "rgb(80, 80, 80)",
-            },
-    
-            borderColor2: {
-                borderColor: "rgb(143, 143, 143)",
-            }
         }),
     }
-    //return toReturn
 }

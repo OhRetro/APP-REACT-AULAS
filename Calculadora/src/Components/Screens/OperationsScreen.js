@@ -4,7 +4,8 @@ import { View, Text, TextInput, Alert } from "react-native";
 import { createPicker } from "../PickerCreator";
 import CustomButton from "../CustomButton";
 import Calculator from "../MathOperations"
-import AppTheme, {autoMainColor} from "../AppTheme";
+import AppTheme from "../AppTheme";
+import colors from "../Colors";
 
 export default function OperationsScreen({ navigation }) {
     const [num1, setNum1] = useState("")
@@ -13,8 +14,9 @@ export default function OperationsScreen({ navigation }) {
     const [result, setResult] = useState("Resultado");
 
     const theme = AppTheme()
-    const style = theme.Style
-    const isDarkModeOn = theme.isDarkModeOn
+    const autoStyle = theme.autoStyleFunction
+    const style = theme.style
+    const presetStyle = theme.presetStyle
 
     const calculate = () => {
         if (!num1 || !num2) {
@@ -22,7 +24,7 @@ export default function OperationsScreen({ navigation }) {
             return;
         }
 
-        setResult(Calculator(operation, parseInt(num1), parseInt(num2)))
+        setResult(Calculator(operation, parseFloat(num1), parseFloat(num2)))
     };
 
     return (
@@ -32,25 +34,32 @@ export default function OperationsScreen({ navigation }) {
                 style.autoTheme
             ]}
         >
-            <StatusBar backgroundColor={isDarkModeOn ? "rgb(39, 39, 39)" : "rgb(214, 214, 214)"} barStyle={isDarkModeOn ? "light-content" : "dark-content"} />
+            <StatusBar 
+                backgroundColor={presetStyle.bgColor[0]} 
+                barStyle={autoStyle("light-content", "dark-content")}
+            />
             <TextInput
                 style={[
                     style.autoTheme,
+                    {backgroundColor: presetStyle.bgColor[0]},
                     style.border,
-                    style.borderColor2,
+                    {borderColor: presetStyle.borderColor[1]},
                     style.size1,
                     style.textBig,
                     style.textCentered,
-                    style.bgColor1
                 ]}
                 placeholder="Número"
                 keyboardType="numeric"
                 onChangeText={setNum1}
                 value={num1}
-                placeholderTextColor={autoMainColor(isDarkModeOn)}
+                placeholderTextColor={autoStyle()}
             />
             {createPicker(operation, setOperation,
-                [style.autoTheme, style.size1, style.bgColor1],
+                [
+                    style.autoTheme,
+                    {backgroundColor: presetStyle.bgColor[0]},
+                    style.size1,
+                ],
                 [
                     ["+ (Somar)", "+", "somar"],
                     ["- (Subtrair)", "-", "subtrair"],
@@ -61,34 +70,34 @@ export default function OperationsScreen({ navigation }) {
             <TextInput
                 style={[
                     style.autoTheme,
+                    {backgroundColor: presetStyle.bgColor[0]},
                     style.border,
-                    style.borderColor2,
+                    {borderColor: presetStyle.borderColor[1]},
                     style.size1,
                     style.textBig,
                     style.textCentered,
-                    style.bgColor1
                 ]}
                 placeholder="Número"
                 keyboardType="numeric"
                 onChangeText={setNum2}
                 value={num2}
-                placeholderTextColor={autoMainColor(isDarkModeOn)}
+                placeholderTextColor={autoStyle()}
             />
             <CustomButton
                 buttonStyle={[style.size1, style.button1]}
-                textStyle={[style.textCentered, style.textBig, {color: autoMainColor(isDarkModeOn)}]}
+                textStyle={[style.textCentered, style.textBig, {color: autoStyle()}]}
                 title="Calcular"
                 onPress={calculate}
             />
             <Text
                 style={[
+                    {backgroundColor: presetStyle.bgColor[0]},
                     style.border,
+                    {borderColor: presetStyle.borderColor[0]},
                     style.size1,
                     style.textBig,
                     style.textCentered,
-                    style.bgColor1,
-                    style.borderColor1,
-                    {color: autoMainColor(isDarkModeOn)}
+                    {color: autoStyle()}
                 ]}
             >
                 {result}
