@@ -4,34 +4,34 @@ import colors from "./Colors";
 export default function AppTheme() {
     const isDarkModeOn = useColorScheme() === "dark"
 
-    function autoStyle(styleOnDarkMode, styleOnLightMode) {
-        return isDarkModeOn ? (styleOnDarkMode || colors.white246) : (styleOnLightMode || colors.black39)
+    function autoStyleMode(styleOnDarkMode, styleOnLightMode) {
+        return isDarkModeOn ? (styleOnDarkMode || colors.rgb245) : (styleOnLightMode || colors.rgb50)
     }
 
     const presetStyle = {
         "bgColor": [
-            autoStyle(colors.black39, colors.white214),
-            autoStyle(colors.black26, colors.gray143),
-            autoStyle(colors.black19, colors.gray104),
-            autoStyle(colors.black27, colors.white235),
-            autoStyle(colors.gray58, colors.white246)
+            autoStyleMode(colors.rgb50, colors.rgb215),
+            autoStyleMode(colors.rgb25, colors.rgb145),
+            autoStyleMode(colors.rgb20, colors.rgb105),
+            autoStyleMode(colors.rgb30, colors.rgb235),
+            autoStyleMode(colors.rgb50, colors.rgb245)
         ],
         "borderColor": [
-            colors.gray80,
-            colors.gray143,
-            autoStyle(colors.gray80, colors.white216)
+            colors.rgb80,
+            colors.rgb145,
+            autoStyleMode(colors.rgb80, colors.rgb215)
         ],
     }
 
     return {
         "isDarkModeOn": isDarkModeOn,
-        "autoStyleFunction": autoStyle,
+        "autoStyleMode": autoStyleMode,
         "presetStyle": presetStyle,
         "style": StyleSheet.create({
             autoTheme: {
-                color: autoStyle(),
+                color: autoStyleMode(),
                 backgroundColor: presetStyle.bgColor[3],
-                borderColor: autoStyle()
+                borderColor: autoStyleMode()
             },
     
             textBig: {

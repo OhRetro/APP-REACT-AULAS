@@ -6,7 +6,7 @@ import OperationsScreen from './Components/Screens/OperationsScreen';
 
 function App() {
     const theme = AppTheme()
-    const autoStyle = theme.autoStyleFunction
+    const autoStyleMode = theme.autoStyleMode
     const presetStyle = theme.presetStyle
 
     return (
@@ -14,7 +14,7 @@ function App() {
             <Stack.Navigator
                 screenOptions={{
                     headerStyle: { backgroundColor: presetStyle.bgColor[0] },
-                    headerTintColor: autoStyle()
+                    headerTintColor: autoStyleMode()
                 }}
             >
                 {createStackScreen(OperationsScreen, "Operations", "Calculadora")}

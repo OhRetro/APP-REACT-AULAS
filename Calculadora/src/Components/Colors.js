@@ -3,21 +3,20 @@ import { StyleSheet } from "react-native"
 const dummyStyleSheet = StyleSheet.create({})
 
 const colors = {
-    "black10": "rgb(10, 10, 10)",
-    "black19": "rgb(19, 19, 19)",
-    "black26": "rgb(26, 26, 26)",
-    "black27": "rgb(27, 27, 27)",
-    "black39": "rgb(39, 39, 39)",
-    
-    "gray58": "rgb(58, 58, 58)",
-    "gray80": "rgb(80, 80, 80)",
-    "gray104": "rgb(104, 104, 104)",
-    "gray143": "rgb(143, 143, 143)",
-
-    "white235": "rgb(235, 235, 235)",
-    "white214": "rgb(214, 214, 214)",
-    "white216": "rgb(216, 216, 216)",
-    "white246": "rgb(246, 246, 246)",
+    "rgb10": "rgb(10, 10, 10)",
+    "rgb20": "rgb(20, 20, 20)",
+    "rgb25": "rgb(25, 25, 25)",
+    "rgb30": "rgb(30, 30, 30)",
+    "rgb50": "rgb(40, 40, 40)",
+    "rgb50": "rgb(50, 50, 50)",
+    "rgb60": "rgb(60, 60, 60)",
+    "rgb80": "rgb(80, 80, 80)",
+    "rgb105": "rgb(105, 105, 105)",
+    "rgb145": "rgb(145, 145, 145)",
+    "rgb215": "rgb(215, 215, 215)",
+    "rgb225": "rgb(225, 225, 225)",
+    "rgb235": "rgb(235, 235, 235)",
+    "rgb245": "rgb(245, 245, 245)",
 
     "blue_var1": "rgb(34, 150, 243)"
 }

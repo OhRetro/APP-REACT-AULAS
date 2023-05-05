@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StatusBar } from 'react-native';
+import { StatusBar } from "react-native";
 import { View, Text, TextInput, Alert} from "react-native";
 import { createPicker } from "../PickerCreator";
 import CustomButton from "../CustomButton";
@@ -13,7 +13,7 @@ export default function OperationsScreen({ navigation }) {
     const [result, setResult] = useState("Resultado");
 
     const theme = AppTheme()
-    const autoStyle = theme.autoStyleFunction
+    const autoStyleMode = theme.autoStyleMode
     const style = theme.style
     const presetStyle = theme.presetStyle
 
@@ -42,7 +42,7 @@ export default function OperationsScreen({ navigation }) {
         >
             <StatusBar 
                 backgroundColor={presetStyle.bgColor[0]} 
-                barStyle={autoStyle("light-content", "dark-content")}
+                barStyle={autoStyleMode("light-content", "dark-content")}
             />
             <TextInput
                 style={[
@@ -58,7 +58,7 @@ export default function OperationsScreen({ navigation }) {
                 keyboardType="numeric"
                 onChangeText={setNum1}
                 value={num1}
-                placeholderTextColor={autoStyle()}
+                placeholderTextColor={autoStyleMode()}
             />
             {createPicker(operation, setOperation, [
                     style.autoTheme,
@@ -85,10 +85,10 @@ export default function OperationsScreen({ navigation }) {
                 keyboardType="numeric"
                 onChangeText={setNum2}
                 value={num2}
-                placeholderTextColor={autoStyle()}
+                placeholderTextColor={autoStyleMode()}
             />
             <CustomButton
-                buttonColor={autoStyle("purple", "green")}
+                buttonColor={autoStyleMode("purple", "green")}
                 buttonStyle={[style.size1]}
                 textStyle={[style.textBig]}
                 title="Calcular"
@@ -102,7 +102,7 @@ export default function OperationsScreen({ navigation }) {
                     style.size1,
                     style.textBig,
                     style.textCentered,
-                    {color: autoStyle()}
+                    {color: autoStyleMode()}
                 ]}
             >
                 {result}
