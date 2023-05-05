@@ -2,11 +2,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
 const Stack = createNativeStackNavigator()
 
-function createStackScreen(screenComponent, nome, display) {
-    return (
-        <Stack.Screen name={nome} component={screenComponent} options={{title: `Calculadora${display ? `: ${display}` : ""}`}}/>
-    )
-}
+const  createStackScreen = (screenComponent, name, title, subtitle) => (
+    <Stack.Screen name={name} component={screenComponent} options={{title: `${title}${subtitle ? `: ${subtitle}` : ""}`}}/>
+)
 
 function createStacksScreens(stacksScreens) {
     return stacksScreens.map((stackScreen) =>

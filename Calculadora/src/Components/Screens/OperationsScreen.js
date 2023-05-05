@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StatusBar } from 'react-native';
-import { View, Text, TextInput, Alert } from "react-native";
+import { View, Text, TextInput, Alert} from "react-native";
 import { createPicker } from "../PickerCreator";
 import CustomButton from "../CustomButton";
 import Calculator from "../MathOperations"
@@ -23,7 +23,14 @@ export default function OperationsScreen({ navigation }) {
             return;
         }
 
-        setResult(Calculator(operation, parseFloat(num1), parseFloat(num2)))
+        const res = Calculator(operation, parseFloat(num1), parseFloat(num2))
+
+        if (!res && res != 0 ) {
+            Alert.alert("Operação Inválida");
+            return;
+        }
+
+        setResult(res)
     };
 
     return (
@@ -53,13 +60,11 @@ export default function OperationsScreen({ navigation }) {
                 value={num1}
                 placeholderTextColor={autoStyle()}
             />
-            {createPicker(operation, setOperation,
-                [
+            {createPicker(operation, setOperation, [
                     style.autoTheme,
                     {backgroundColor: presetStyle.bgColor[0]},
                     style.size1,
-                ],
-                [
+                ], [
                     ["+ (Somar)", "+", "somar"],
                     ["- (Subtrair)", "-", "subtrair"],
                     ["* (Multiplicar)", "*", "multiplicar"],
@@ -83,8 +88,9 @@ export default function OperationsScreen({ navigation }) {
                 placeholderTextColor={autoStyle()}
             />
             <CustomButton
-                buttonStyle={[style.size1, style.button1, {backgroundColor: presetStyle.borderColor[1]}]}
-                textStyle={[style.textCentered, style.textBig, {color: autoStyle()}]}
+                buttonColor={autoStyle("purple", "green")}
+                buttonStyle={[style.size1]}
+                textStyle={[style.textBig]}
                 title="Calcular"
                 onPress={calculate}
             />

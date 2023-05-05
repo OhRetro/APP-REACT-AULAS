@@ -1,11 +1,24 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native"
-import Calculator from "./Components/Calculator"
+import { Stack, createStackScreen } from "./Components/ScreenStacker"
+import AppTheme from './Components/AppTheme';
+import OperationsScreen from './Components/Screens/OperationsScreen';
 
 function App() {
-    return ( 
+    const theme = AppTheme()
+    const autoStyle = theme.autoStyleFunction
+    const presetStyle = theme.presetStyle
+
+    return (
         <NavigationContainer>
-            <Calculator/>
+            <Stack.Navigator
+                screenOptions={{
+                    headerStyle: { backgroundColor: presetStyle.bgColor[0] },
+                    headerTintColor: autoStyle()
+                }}
+            >
+                {createStackScreen(OperationsScreen, "Operations", "Calculadora")}
+            </Stack.Navigator>
         </NavigationContainer>
     )
 }

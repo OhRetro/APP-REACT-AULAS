@@ -17,7 +17,9 @@ const colors = {
     "white235": "rgb(235, 235, 235)",
     "white214": "rgb(214, 214, 214)",
     "white216": "rgb(216, 216, 216)",
-    "white246": "rgb(246, 246, 246)"
+    "white246": "rgb(246, 246, 246)",
+
+    "blue_var1": "rgb(34, 150, 243)"
 }
 
 export default colors

@@ -16,6 +16,7 @@ function mathOperations(operation, ...numbers) {
                 break
         }
     }
+
     return result
 }
 

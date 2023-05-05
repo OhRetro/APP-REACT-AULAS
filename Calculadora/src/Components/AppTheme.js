@@ -34,13 +34,6 @@ export default function AppTheme() {
                 borderColor: autoStyle()
             },
     
-            button1: {
-                borderColor: presetStyle.borderColor[2],
-                backgroundColor: presetStyle.bgColor[4],
-                borderRadius: 5,
-                borderWidth: 4,
-            },
-    
             textBig: {
                 fontSize: 32,
             },
